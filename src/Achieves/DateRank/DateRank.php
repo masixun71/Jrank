@@ -5,6 +5,8 @@ namespace Jue\Rank\Achieves\DateRank;
 
 use Carbon\Carbon;
 use Jue\Rank\Achieves\CounterRank\CounterRank;
+use Jue\Rank\Achieves\CounterRank\Types\NumericType;
+use Jue\Rank\Achieves\CounterRank\Values\RankValue;
 use Symfony\Component\Translation\Exception\LogicException;
 
 class DateRank extends CounterRank
@@ -19,7 +21,7 @@ class DateRank extends CounterRank
      * @param string $useFloat
      * @param $groupConnector
      */
-    public function __construct($redis, $namespace, $groupName, $date, $useFloat, $groupConnector)
+    public function __construct($redis, $namespace, $groupName, $date, $useFloat = NumericType::USE_NUM, $groupConnector = RankValue::DEFAULT_GROUPCONNECTOR)
     {
         $carbon = $this->toCarbon($date);
         parent::__construct($redis, $this->mergeNameSpaceGroup($namespace, $groupName, $groupConnector), $carbon->format('Y-m-d'), $useFloat, $groupConnector);
@@ -28,19 +30,19 @@ class DateRank extends CounterRank
     /**
      * @return string
      */
-    public function getNamespace()
+    public function getDateNamespace()
     {
-        $arr = implode($this->getGroupConnector(), parent::getNamespace());
-        return $arr[1];
+        $arr = explode($this->getGroupConnector(), parent::getNamespace());
+        return $arr[0];
     }
 
     /**
      * @return string
      */
-    public function getGroupName()
+    public function getDateGroupName()
     {
-        $arr = implode($this->getGroupConnector(), parent::getNamespace());
-        return $arr[0];
+        $arr = explode($this->getGroupConnector(), parent::getNamespace());
+        return $arr[1];
     }
 
     /**

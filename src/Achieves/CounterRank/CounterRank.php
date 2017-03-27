@@ -156,7 +156,7 @@ class CounterRank implements ICounterRank
      */
     public function batchAddRankField(array $values)
     {
-        $data = [];
+        $data = [ $this->getRankKey() ];
         foreach ($values as $field => $score)
         {
             $data[] = $score;
@@ -183,7 +183,7 @@ class CounterRank implements ICounterRank
      */
     public function batchRmRankField(array $fields)
     {
-        return call_user_func_array([$this->getRedis(), 'zRem'], $fields);
+        return call_user_func_array([$this->getRedis(), 'zRem'], array_merge([ $this->getRankKey() ],$fields));
     }
 
     /**
@@ -246,33 +246,33 @@ class CounterRank implements ICounterRank
      *
      * @param $limit
      * @param $key
-     * @param int $page
+     * @param int $start
      * @param $type
      * @return array
      */
-    public function getRank($limit, $key, $page = 0, $type = SortType::DESC)
+    public function getRank($limit, $key, $start = 0, $type = SortType::DESC)
     {
         if($type == SortType::DESC)
         {
-            return $this->getRedis()->zRevRange($key, $page, $limit - 1, true);
+            return $this->getRedis()->zRevRange($key, $start, $limit - 1, true);
         }
         else
         {
-            return $this->getRedis()->zRange($key, $page, $limit - 1, true);
+            return $this->getRedis()->zRange($key, $start, $limit - 1, true);
         }
     }
 
     /**
      * 排名方法 top排名,可根据type进行正序逆序,使用类的rankKey属性
      *
-     * @param $limit
-     * @param $page
+     * @param $limit //当limit为0时，获取所有排名
+     * @param $start
      * @param $type
      * @return array
      */
-    public function rank($limit, $page = 0, $type = SortType::DESC)
+    public function rank($limit, $start = 0, $type = SortType::DESC)
     {
-        return $this->getRank($limit, $this->getRankKey(), $page, $type);
+        return $this->getRank($limit, $this->getRankKey(), $start, $type);
     }
 
     /**
@@ -282,7 +282,7 @@ class CounterRank implements ICounterRank
      * @param array $options
      * @return array
      */
-    public function rankByScore($start, $end, array $options = array())
+    public function rankByScore($start, $end, array $options = array('withscores' => TRUE))
     {
         return $this->getRedis()->zRangeByScore($this->getRankKey(), $start, $end, $options);
     }

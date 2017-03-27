@@ -23,7 +23,7 @@
         "psr-4": {
             "Jue\\Rank\\": "src/"
         }
-    }
+    },
     "config": {
         "secure-http": false,
         "preferred-install": {

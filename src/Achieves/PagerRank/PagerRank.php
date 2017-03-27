@@ -11,6 +11,9 @@ use Jue\Rank\Interfaces\IPagerRank;
 class PagerRank implements IPagerRank
 {
 
+    const CURRENTPAGE = 0;
+    const PERPAGE = 10;
+
     use Getters;
 
     protected $counterRank;
@@ -20,7 +23,7 @@ class PagerRank implements IPagerRank
     protected $hasMore;
     protected $nextPage;
 
-    public function __construct(ICounterRank $counterRank, $currentPage, $perPage = 10)
+    public function __construct(ICounterRank $counterRank, $currentPage = self::CURRENTPAGE, $perPage = self::PERPAGE)
     {
         $this->counterRank = $counterRank;
         $this->perPage = $perPage;
