@@ -90,7 +90,7 @@ class PagerRank implements IPagerRank
     {
         $page = ($this->getCurrentPage() - 1) * $this->getPerPage();
         $limit = $page + $this->getPerPage();
-        return $this->getCounterRank()->rank($limit, $page,$type);
+        return $this->getCounterRank()->rank($limit, $page, $type);
     }
 
 }
