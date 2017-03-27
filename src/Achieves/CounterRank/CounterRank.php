@@ -66,6 +66,20 @@ class CounterRank implements ICounterRank
         $this->groupConnector = $groupConnector;
     }
 
+    /**
+     * @param $redis
+     * @param $namespace
+     * @param $groupName
+     * @param bool $useFloat
+     * @param string $groupConnector
+     * @return CounterRank
+     */
+    public static function buildRank($redis, $namespace, $groupName, $useFloat = NumericType::USE_NUM, $groupConnector = RankValue::DEFAULT_GROUPCONNECTOR)
+    {
+        return new CounterRank($redis, $namespace, $groupName, $useFloat, $groupConnector);
+    }
+
+
 
     /**
      * 获取命名空间与分组名组成的redis使用的key
