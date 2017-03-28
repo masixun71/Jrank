@@ -49,12 +49,25 @@ CounterRank
 $rank = new CounterRank($redis,'activity','test');//新建一个counterRank
 ```
 
-##### getRankKey ：获取当前rank使用的key值
+##### getRankKey ：获取当前rank使用的key值 ☺️
 
 ```php
 var_dump($rank->getRankKey());
 
 //结果:	activity:test
+```
+
+##### addRankField : 给rank添加一个field（类似于我给排名加一个游戏玩家的id和他拿了多少分）:smirk:
+
+```php
+$rank->addRankField(1, 2);
+```
+
+##### getRankScore: 获取想要的field的score（类似于我想知道某个游戏玩家的分数）:kissing_closed_eyes:
+
+```php
+var_dump($rank->getRankScore(1));
+//结果:	2	
 ```
 
 
