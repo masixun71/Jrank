@@ -3,10 +3,10 @@
 # CounterRank
 
 
-所有其他排名组件都基于CounterRank,Counter提供最完备的排名功能，任何Cache只要实现`IRedis`的方法即可使用CounterRank,默认使用`\Redis`.<br>
+counterRank是我所写的JRank的核心,所有其他排名组件都基于CounterRank,Counter提供最完备的排名功能，任何Cache只要实现`IRedis`的方法即可使用CounterRank,默认使用`\Redis`.<br>
 
 
-[本文档也发布在了我的博客，欢迎吐槽](http://masixun.win/2017/03/30/JRank-CounterRank)
+[本文档也发布在了我的博客，支持吐槽哦](http://masixun.win/2017/03/30/JRank-CounterRank)
 
 
 #### 想快速浏览通过下面的锚吧,推荐一个个看（流程更详细）

@@ -70,7 +70,9 @@ var_dump($rank->getRankScore(1));
 //结果:	2	
 ```
 
-[更多使用]()
+#### [更多counterRank的使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
+
+#### [更多counterRank的使用哦,(gitHub路径)](./doc/counterRank.md)
 
 
 
