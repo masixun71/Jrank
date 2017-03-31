@@ -82,6 +82,26 @@ var_dump($rank->getRankScore(1));
 DateRank
 -----
 
+### *实例*(以下例子使用的都是Carbon库来处理时间)
+
+```php
+$rank = new DateRank($redis,'activity','test', Carbon::now());
+```
+
+
+
+#### getRankKey:获取当前rank使用的key值 ☺️
+```php
+var_dump("rankKey:".$rank->getRankKey());
+
+//结果:	
+activity:test:2017-03-31
+```
+
+#### [更多counterRank的使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
+
+#### [更多counterRank的使用哦,(gitHub路径)](./doc/dateRank.md)
+
 
 MutliRank
 -----
