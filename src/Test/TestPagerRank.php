@@ -29,10 +29,10 @@ $rank->batchAddRankField([
     9 => 9
 ]);
 
-$pager = new PagerRank($rank,5,2);
+$pager = new PagerRank($rank,0,2);
 
 var_dump($pager->getItem());
 var_dump($pager->getItem(SortType::ASC));
 
-
+var_dump($pager->toArray());
 

@@ -93,6 +93,7 @@ getDate
 ```php
 var_dump($rank->getDate());
 
+//结果:
 class Carbon\Carbon#5 (3) {
   public $date =>
   string(26) "2017-03-31 21:36:13.000000"

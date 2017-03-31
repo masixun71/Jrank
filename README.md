@@ -70,9 +70,9 @@ var_dump($rank->getRankScore(1));
 //结果:	2	
 ```
 
-#### [更多counterRank的使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
+#### [CounterRank的详细介绍和使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
 
-#### [更多counterRank的使用哦,(gitHub路径)](./doc/counterRank.md)
+#### [CounterRank的详细介绍和使用哦,(gitHub路径)](./doc/counterRank.md)
 
 
 
@@ -98,13 +98,29 @@ var_dump("rankKey:".$rank->getRankKey());
 activity:test:2017-03-31
 ```
 
-#### [更多counterRank的使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
+#### [DateRank的详细介绍和使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
 
-#### [更多counterRank的使用哦,(gitHub路径)](./doc/dateRank.md)
+#### [DateRank的详细介绍和使用哦,(gitHub路径)](./doc/dateRank.md)
 
 
 MutliRank
 -----
+
+### *实例*(以下例子使用的都是Carbon库来处理时间)
+
+```php
+$rank1 = new DateRank($redis,'activity','test', Carbon::now());
+$rank2 = new DateRank($redis,'activity','test', Carbon::tomorrow());
+$rank1->addRankField(1,2);
+$rank1->addRankField(2,4);
+$rank2->addRankField(1,2);
+
+$mutliRank = new MutliCounterRank([$rank1,$rank2], $redis);
+```
+
+#### [MutliRank的详细介绍和使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
+
+#### [MutliRank的详细介绍和使用哦,(gitHub路径)](./doc/mutliRank.md)
 
 
 PagerRank
@@ -112,16 +128,30 @@ PagerRank
 
 
 
+### *实例*(以下例子使用的都是Carbon库来处理时间)
+
+```php
+$rank = new CounterRank($redis, 'activity', 'pager');
+$rank->batchAddRankField([
+    1 => 2,
+    2 => 4,
+    3 => 3,
+    4 => 20,
+    5 => 7,
+    6 => 13,
+    7 => 10,
+    8 => 13,
+    9 => 9
+]);
+
+$pager = new PagerRank($rank,5,2);
+```
+
+#### [PagerRank的详细介绍和使用哦(博客路径，可以留言吐槽)](http://masixun.win/2017/03/30/JRank-CounterRank/)
+
+#### [Pager的详细介绍和使用哦,(gitHub路径)](./doc/pagerRank.md)
 
 
 
 
-
-
-
-
-
-
-
-
-[回到顶部](#JRank)
+[回到顶部](#Jrank)
