@@ -158,9 +158,9 @@ interface ICounterRank
 
     /**
      * 返回指定field的当前排名
-     * @param $key
+     * @param $field
      * @param int $type
      * @return int
      */
-    public function currentRank($key, $type);
+    public function currentRank($field, $type);
 }

@@ -55,7 +55,7 @@ var_dump($rank->batchGetRankScore([1,2]));
 $rank->batchIncreaseRankField([1,2],2);
 var_dump($rank->batchGetRankScore([1,2]));
 
-var_dump($rank->rank(2,1));
+var_dump($rank->rank(0));
 var_dump($rank->rank(2,1,SortType::ASC));
 
 var_dump($rank->rankByScore(0,20));

@@ -16,7 +16,7 @@
 ## 安装   |    Install
 
 ```Bash
-composer install jue/rank
+composer require jue/rank
 ```
 
 -------
@@ -70,7 +70,7 @@ var_dump($rank->getRankScore(1));
 //结果:	2	
 ```
 
-
+[更多使用]()
 
 
 

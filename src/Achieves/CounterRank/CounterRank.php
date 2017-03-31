@@ -331,19 +331,19 @@ class CounterRank implements ICounterRank
 
     /**
      * 返回指定field的当前排名
-     * @param $key
+     * @param $field
      * @param int $type
      * @return int
      */
-    public function currentRank($key, $type = SortType::DESC)
+    public function currentRank($field, $type = SortType::DESC)
     {
         if($type)
         {
-            return $this->getRedis()->zRevRank($this->getRankKey(), $key);
+            return $this->getRedis()->zRevRank($this->getRankKey(), $field);
         }
         else
         {
-            return $this->getRedis()->zRank($this->getRankKey(), $key);
+            return $this->getRedis()->zRank($this->getRankKey(), $field);
         }
     }
 
