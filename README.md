@@ -2,7 +2,7 @@
 
 ### 强大的,基于php开发的排名组件（php rank）
 
-![][/img/Jrank.png]
+[![](/img/Jrank.png "我的博客，欢迎关注")][Jrank]
 
 #### 	Jrank正式发布了，他是一个能够给你提供排名功能所必需的要素，文档完善，功能齐全，低耦合，composer引入，二次开发，相信Jrank能够给你带来最佳的体验。
 
@@ -166,3 +166,6 @@ $pager = new PagerRank($rank,5,2);
 
 [回到顶部](#Jrank)
 
+
+
+[Jrank]: https://masixun.win	"我的博客，欢迎关注"
