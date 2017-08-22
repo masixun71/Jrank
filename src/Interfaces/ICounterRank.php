@@ -101,21 +101,21 @@ interface ICounterRank
      *
      * @param $limit
      * @param $key
-     * @param int $page
+     * @param int $start
      * @param $type
      * @return array
      */
-    public function getRank($limit, $key, $page = 0, $type);
+    public function getRank($limit, $key, $start = 0, $type);
 
     /**
      * 排名方法 top排名,可根据type进行正序逆序,使用类的rankKey属性
      *
-     * @param $limit
-     * @param $page
+     * @param $limit //当limit为0时，获取所有排名
+     * @param $start
      * @param $type
      * @return array
      */
-    public function rank($limit, $page = 0, $type);
+    public function rank($limit, $start = 0, $type);
 
     /**
      * 根据score的限制获取排名
@@ -158,9 +158,9 @@ interface ICounterRank
 
     /**
      * 返回指定field的当前排名
-     * @param $key
+     * @param $field
      * @param int $type
      * @return int
      */
-    public function currentRank($key, $type);
+    public function currentRank($field, $type);
 }

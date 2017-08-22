@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "18cfd0728e114a513fac0c6bef1e88d9",
-    "content-hash": "8d9ce31bed69a4f119a8a8a4b2971b17",
+    "content-hash": "c23f1b88637a83f1b5a25a927c95099c",
     "packages": [
         {
             "name": "nesbot/carbon",
@@ -58,7 +57,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2017-01-16 07:55:07"
+            "time": "2017-01-16T07:55:07+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -117,7 +116,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14 01:06:16"
+            "time": "2016-11-14T01:06:16+00:00"
         },
         {
             "name": "symfony/translation",
@@ -181,7 +180,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-04 12:23:14"
+            "time": "2017-03-04T12:23:14+00:00"
         }
     ],
     "packages-dev": [],
